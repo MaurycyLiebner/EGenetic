@@ -76,7 +76,7 @@ using ESpecimen = std::pair<long, T>;
 //! @brief
 //! @tparam T the type of data
 template <typename T>
-class EGENETIC_EXPORT EGenetic {
+class EGenetic {
 public:
     EGenetic(const EGeneticFunctions<T>& funcs,
              const EGeneticSettings& settings);
