@@ -76,14 +76,14 @@ using ESpecimen = std::pair<long, T>;
 template <typename T>
 class EGenetic {
 public:
-    EGenetic(const EGeneticFunctions<T>& funcs,
-             const EGeneticSettings& settings);
+    EGenetic();
     ~EGenetic();
 
     //! @brief Starts calculations. Throws an exception if already running.
     //! @param funcs The set of functions to be used during calculations.
     //! @param settings The settings used during calculations.
-    void start();
+    void start(const EGeneticFunctions<T>& funcs,
+               const EGeneticSettings& settings);
     void stop();
 
     ESpecimen<T> getBest();

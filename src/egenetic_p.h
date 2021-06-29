@@ -14,18 +14,15 @@ using EParents = std::pair<ESpecimen<T>, ESpecimen<T>>;
 template <typename T>
 class EGeneticPrivate {
 public:
-    EGeneticPrivate(const EGeneticFunctions<T>& funcs,
-                    const EGeneticSettings& settings);
+    EGeneticPrivate();
 
-    void start();
+    void start(const EGeneticFunctions<T>& funcs,
+               const EGeneticSettings& settings);
     void stop();
 
     //! @brief returns the current best solution
     ESpecimen<T> getBest();
 private:    
-    const EGeneticFunctions<T> mFuncs;
-    const EGeneticSettings mSettings;
-
     EEventLoop<T>* mEventLoop;
 };
 

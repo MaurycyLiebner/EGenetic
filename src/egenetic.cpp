@@ -3,9 +3,8 @@
 #include "egenetic_p.h"
 
 template<typename T>
-EGenetic<T>::EGenetic(const EGeneticFunctions<T>& funcs,
-                      const EGeneticSettings& settings) {
-    d = new EGeneticPrivate<T>(funcs, settings);
+EGenetic<T>::EGenetic() {
+    d = new EGeneticPrivate<T>();
 }
 
 template<typename T>
@@ -14,8 +13,9 @@ EGenetic<T>::~EGenetic() {
 }
 
 template<typename T>
-void EGenetic<T>::start() {
-    d->start();
+void EGenetic<T>::start(const EGeneticFunctions<T>& funcs,
+                        const EGeneticSettings& settings) {
+    d->start(funcs, settings);
 }
 
 template<typename T>

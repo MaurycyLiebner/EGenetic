@@ -5,9 +5,7 @@
 #include <numeric>
 
 template <typename T>
-EEventLoop<T>::EEventLoop(const EGeneticFunctions<T>& funcs,
-                          const EGeneticSettings& settings) :
-    mFuncs(funcs), mSettings(settings) {
+EEventLoop<T>::EEventLoop() {
     if(mSettings.fNThreads == 0) {
         mNWorkers = QThread::idealThreadCount();
     } else {
@@ -18,16 +16,18 @@ EEventLoop<T>::EEventLoop(const EGeneticFunctions<T>& funcs,
     mPopIds = std::vector<int>(mTotPopSize);
     std::iota(mPopIds.begin(), mPopIds.end(), 0);
     std::random_shuffle(mPopIds.begin(), mPopIds.end());
+}
 
+template<typename T>
+void EEventLoop<T>::run(const EGeneticFunctions<T>& funcs,
+                        const EGeneticSettings& settings) {
+    mFuncs = funcs;
+    mSettings = settings;
     for(int i = 0; i < mTotPopSize; i++) {
         auto sp = mFuncs.fGenerator();
         const int s = mFuncs.fSelector(sp);
         mPop.push_back({s, sp});
     }
-}
-
-template<typename T>
-void EEventLoop<T>::run() {
     for(int i = 0; i < mNWorkers; i++) {
         const auto w = new EWorker<T>(mFuncs, mSettings);
         const auto t = new QThread();

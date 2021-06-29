@@ -15,10 +15,10 @@ enum class ELoopState {
 template <typename T>
 class EEventLoop {
 public:
-    EEventLoop(const EGeneticFunctions<T>& funcs,
-               const EGeneticSettings& settings);
+    EEventLoop();
 
-    void run();
+    void run(const EGeneticFunctions<T>& funcs,
+             const EGeneticSettings& settings);
     void stop();
 
     ESpecimen<T> getBest() const;
@@ -27,8 +27,8 @@ private:
     void workerFinished(QEWorker* w);
     void useWorkers();
 
-    const EGeneticFunctions<T> mFuncs;
-    const EGeneticSettings mSettings;
+    EGeneticFunctions<T> mFuncs;
+    EGeneticSettings mSettings;
 
     bool mStop = false;
 
