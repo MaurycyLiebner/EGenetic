@@ -34,7 +34,7 @@ EGeneticSettings sett;
 sett.fReceiveInc = 100;
 
 const auto g = new EGenetic<double>();
-g->start();
+g->start(funcs, sett);
 // call g->stop() when you want to stop the calculations
 
 ```
