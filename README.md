@@ -25,7 +25,7 @@ funcs.fReceiver = [](const std::vector<double>& ss) {
     // here handle the result
 };
 
-funcs.fStopped = [](const std::vector<double>& ss) {
+funcs.fStopped = []() {
     // here delete the EGenetic<double> instance
 };
 
