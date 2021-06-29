@@ -3,7 +3,7 @@
 
 #include <QObject>
 
-#include "../include/egenetic_global.h"
+#include "egenetic_global.h"
 
 class EGENETIC_EXPORT QEWorker : public QObject {
     Q_OBJECT

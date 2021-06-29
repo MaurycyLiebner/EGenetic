@@ -9,6 +9,11 @@ EGenetic<T>::EGenetic(const EGeneticFunctions<T>& funcs,
 }
 
 template<typename T>
+EGenetic<T>::~EGenetic() {
+    delete d;
+}
+
+template<typename T>
 void EGenetic<T>::start() {
     d->start();
 }

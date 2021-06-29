@@ -32,10 +32,10 @@ SOURCES += \
 
 HEADERS += \
     include/egenetic.h \
-    include/egenetic_global.h \
     src/eatomiccont.h \
     src/econditionvalue.h \
     src/eeventloop.h \
+    src/egenetic_global.h \
     src/egenetic_p.h \
     src/eworker.h \
     src/qeworker.h
