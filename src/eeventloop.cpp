@@ -77,7 +77,7 @@ void EEventLoop<T>::workerFinished(QEWorker* w) {
     mPop.resize(mTotPopSize);
     mFreeWorkers << wt;
 
-    if(mReceive++ % mSettings.fReceiveInc == 0) {
+    if(++mReceive % mSettings.fReceiveInc == 0) {
         std::vector<T> data;
         data.reserve(mSettings.fReceiveCount);
         for(int i = 0; i < mSettings.fReceiveCount; i++) {
